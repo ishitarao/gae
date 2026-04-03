@@ -1,5 +1,5 @@
-from gae.initializations import *
-import tensorflow as tf
+from initializations import *
+import tensorflow.compat.v1 as tf
 
 flags = tf.app.flags
 FLAGS = flags.FLAGS
@@ -76,7 +76,7 @@ class GraphConvolution(Layer):
 
     def _call(self, inputs):
         x = inputs
-        x = tf.nn.dropout(x, 1-self.dropout)
+        x = tf.nn.dropout(x, rate=self.dropout)
         x = tf.matmul(x, self.vars['weights'])
         x = tf.sparse_tensor_dense_matmul(self.adj, x)
         outputs = self.act(x)
@@ -112,7 +112,7 @@ class InnerProductDecoder(Layer):
         self.act = act
 
     def _call(self, inputs):
-        inputs = tf.nn.dropout(inputs, 1-self.dropout)
+        inputs = tf.nn.dropout(inputs, rate=self.dropout)
         x = tf.transpose(inputs)
         x = tf.matmul(inputs, x)
         x = tf.reshape(x, [-1])
