@@ -1,5 +1,5 @@
-from gae.layers import GraphConvolution, GraphConvolutionSparse, InnerProductDecoder
-import tensorflow as tf
+from layers import GraphConvolution, InnerProductDecoder
+import tensorflow.compat.v1 as tf
 
 flags = tf.app.flags
 FLAGS = flags.FLAGS
@@ -41,21 +41,19 @@ class Model(object):
 
 
 class GCNModelAE(Model):
-    def __init__(self, placeholders, num_features, features_nonzero, **kwargs):
+    def __init__(self, placeholders, num_features, **kwargs):
         super(GCNModelAE, self).__init__(**kwargs)
 
         self.inputs = placeholders['features']
         self.input_dim = num_features
-        self.features_nonzero = features_nonzero
         self.adj = placeholders['adj']
         self.dropout = placeholders['dropout']
         self.build()
 
     def _build(self):
-        self.hidden1 = GraphConvolutionSparse(input_dim=self.input_dim,
+        self.hidden1 = GraphConvolution(input_dim=self.input_dim,
                                               output_dim=FLAGS.hidden1,
                                               adj=self.adj,
-                                              features_nonzero=self.features_nonzero,
                                               act=tf.nn.relu,
                                               dropout=self.dropout,
                                               logging=self.logging)(self.inputs)
@@ -75,22 +73,21 @@ class GCNModelAE(Model):
 
 
 class GCNModelVAE(Model):
-    def __init__(self, placeholders, num_features, num_nodes, features_nonzero, **kwargs):
+    def __init__(self, placeholders, num_features, num_nodes, **kwargs):
         super(GCNModelVAE, self).__init__(**kwargs)
 
         self.inputs = placeholders['features']
         self.input_dim = num_features
-        self.features_nonzero = features_nonzero
         self.n_samples = num_nodes
         self.adj = placeholders['adj']
         self.dropout = placeholders['dropout']
         self.build()
 
+
     def _build(self):
-        self.hidden1 = GraphConvolutionSparse(input_dim=self.input_dim,
+        self.hidden1 = GraphConvolution(input_dim=self.input_dim,
                                               output_dim=FLAGS.hidden1,
                                               adj=self.adj,
-                                              features_nonzero=self.features_nonzero,
                                               act=tf.nn.relu,
                                               dropout=self.dropout,
                                               logging=self.logging)(self.inputs)
