@@ -28,17 +28,48 @@ def construct_feed_dict(adj_normalized, adj, features, placeholders):
     feed_dict.update({placeholders['adj_orig']: adj})
     return feed_dict
 
+def create_test_edges_false(edges_all_set, test_edges, adj_rows):
+    test_edges_false = set()
+    while len(test_edges_false) < len(test_edges):
+        idx_i = np.random.randint(0, adj_rows)
+        idx_j = np.random.randint(0, adj_rows)
+        if idx_i == idx_j:
+            continue
+        if (idx_i, idx_j) in edges_all_set:
+            continue
+        if (idx_j, idx_i) in test_edges_false:
+            continue
+        test_edges_false.add((idx_i, idx_j))
+
+    return [list(tup) for tup in test_edges_false]
+
+def create_val_edges_false(train_edges, val_edges, edges_all_set, adj_rows):
+    train_set = {(min(a, b), max(a, b)) for a, b in train_edges}
+    val_set = {(min(a, b), max(a, b)) for a, b in val_edges}
+    forbidden = train_set | val_set
+
+    val_edges_false = set()
+    while len(val_edges_false) < len(val_edges):
+        i = np.random.randint(0, adj_rows)
+        j = np.random.randint(0, adj_rows)
+        if i == j:
+            continue
+        if (i, j) in edges_all_set or (j, i) in edges_all_set:
+            continue
+        if (i, j) in forbidden or (j, i) in forbidden or (j, i) in val_edges_false:
+            continue
+
+        val_edges_false.add((i, j))
+
+    return [list(edge) for edge in val_edges_false]
 
 def mask_test_edges(adj):
     # Function to build test set with 10% positive links
     # NOTE: Splits are randomized and results might slightly deviate from reported numbers in the paper.
-    # TODO: Clean up.
 
     # Remove diagonal elements
     adj = adj - sp.dia_matrix((adj.diagonal()[np.newaxis, :], [0]), shape=adj.shape)
     adj.eliminate_zeros()
-    # Check that diag is zero:
-    assert np.diag(adj.todense()).sum() == 0
 
     adj_triu = sp.triu(adj)
     adj_tuple = sparse_to_tuple(adj_triu)
@@ -55,51 +86,19 @@ def mask_test_edges(adj):
     val_edges = edges[val_edge_idx]
     train_edges = np.delete(edges, np.hstack([test_edge_idx, val_edge_idx]), axis=0)
 
-    def ismember(a, b, tol=5):
-        rows_close = np.all(np.round(a - b[:, None], tol) == 0, axis=-1)
-        return np.any(rows_close)
+    edges_all_set = set(map(tuple, edges_all))
+    test_edges_false = create_test_edges_false(edges_all_set, test_edges, adj.shape[0])
+    val_edges_false = create_val_edges_false(train_edges, val_edges, edges_all_set, adj.shape[0])
 
-    test_edges_false = []
-    while len(test_edges_false) < len(test_edges):
-        idx_i = np.random.randint(0, adj.shape[0])
-        idx_j = np.random.randint(0, adj.shape[0])
-        if idx_i == idx_j:
-            continue
-        if ismember([idx_i, idx_j], edges_all):
-            continue
-        if test_edges_false:
-            if ismember([idx_j, idx_i], np.array(test_edges_false)):
-                continue
-            if ismember([idx_i, idx_j], np.array(test_edges_false)):
-                continue
-        test_edges_false.append([idx_i, idx_j])
+    def ismember(a, b):
+        return set(map(tuple, a)) & set(map(tuple, b))
 
-    val_edges_false = []
-    while len(val_edges_false) < len(val_edges):
-        idx_i = np.random.randint(0, adj.shape[0])
-        idx_j = np.random.randint(0, adj.shape[0])
-        if idx_i == idx_j:
-            continue
-        if ismember([idx_i, idx_j], train_edges):
-            continue
-        if ismember([idx_j, idx_i], train_edges):
-            continue
-        if ismember([idx_i, idx_j], val_edges):
-            continue
-        if ismember([idx_j, idx_i], val_edges):
-            continue
-        if val_edges_false:
-            if ismember([idx_j, idx_i], np.array(val_edges_false)):
-                continue
-            if ismember([idx_i, idx_j], np.array(val_edges_false)):
-                continue
-        val_edges_false.append([idx_i, idx_j])
-
-    assert ~ismember(test_edges_false, edges_all)
-    assert ~ismember(val_edges_false, edges_all)
-    assert ~ismember(val_edges, train_edges)
-    assert ~ismember(test_edges, train_edges)
-    assert ~ismember(val_edges, test_edges)
+    assert not ismember(test_edges_false, edges_all)
+    assert not ismember(val_edges_false, edges_all)
+    assert not ismember(val_edges, val_edges_false)
+    assert not ismember(val_edges, train_edges)
+    assert not ismember(test_edges, train_edges)
+    assert not ismember(val_edges, test_edges)
 
     data = np.ones(train_edges.shape[0])
 
