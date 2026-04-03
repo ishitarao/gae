@@ -1,0 +1,282 @@
+Gene_Symbol,Entrez_GeneId,Genome_Location,Role_in_Cancer,n_tumor_types,n_project_cancers,matched_project_cancers,all_tumor_types
+ABL1,25,9:130713946-130885683,"oncogene, fusion",3,0,"",cml; all; t-all
+ACVR2A,92,2:147844517-147930824,TSG,5,1,colorectal,large intestine carcinoma; stomach carcinoma; pancreatic carcinoma; biliary tract; oesophagus
+AFF3,3899,2:99551121-100106128,"oncogene, fusion",2,0,"",all; t-all
+AKT1,207,14:104769349-104794124,oncogene,4,3,breast; colorectal; ovarian,breast; colorectal; ovarian; nsclc
+AKT2,208,19:40230317-40285395,oncogene,2,1,ovarian,ovarian; pancreatic
+ALK,238,2:29192774-29921566,"oncogene, fusion",5,0,"",alcl; nsclc; neuroblastoma; inflammatory myofibroblastic tumour; spitzoid tumour
+APC,324,5:112737888-112846239,TSG,6,1,colorectal,colorectal; pancreatic; desmoid; hepatoblastoma; glioma; other cns
+ARHGAP26,23092,5:142770377-143229011,"TSG, fusion",2,0,"",aml; mds
+ARID1A,8289,1:26696033-26782110,"TSG, fusion",3,1,breast,clear cell ovarian carcinoma; rcc; breast
+ARID1B,57492,6:156777374-157210779,TSG,3,1,breast,breast; hepatocellular carcinoma; clear cell ovarian carcinoma
+ASXL1,171023,20:32358330-32439319,TSG,2,0,"",mds; cmml
+ATF1,466,12:50764292-50821122,"oncogene, fusion",2,0,"",malignant melanoma of soft parts; angiomatoid fibrous histiocytoma
+ATM,472,11:108222832-108369099,TSG,5,0,"",t-pll; leukaemia; lymphoma; medulloblastoma; glioma
+ATR,545,3:142449237-142578826,TSG,5,0,"",endometrial; gastric; epithelial ovarian; myeloma; oropharyngeal
+ATRX,546,X:77504878-77786269,TSG,2,0,"",pancreatic neuroendocrine tumours; paediatric gbm
+AXIN1,8312,16:287440-352659,TSG,6,2,prostate; colorectal,colorectal; endometrial; prostate; hepatocellular carcinoma; hepatoblastoma; sporadic medulloblastoma
+AXIN2,8313,17:65528563-65561647,TSG,3,1,colorectal,colorectal carcinoma; stomach carcinoma; hepatocellular carcinoma
+B2M,567,15:44711477-44718877,TSG,3,0,"",dlbcl; melanoma; colorectal adenocarcinoma
+BAP1,8314,3:52401013-52410350,TSG,7,1,breast,uveal melanoma; breast; nsclc; rcc; mesothelioma; skin and uveal melanoma; kidney cancer
+BARD1,580,2:214725646-214809704,TSG,3,2,breast; ovarian,breast cancer; ovarian cancer; endometrioid cancer
+BCL2,596,18:63123346-63320128,"oncogene, fusion",2,0,"",nhl; cll
+BCL6,604,3:187721377-187745727,"oncogene, fusion",2,0,"",nhl; cll
+BCL9L,283149,11:118893875-118910904,"oncogene, TSG",3,1,colorectal,colorectal cancer; endometrial carcinoma; gastric cancer
+BCOR,54880,X:40051248-40097403,"TSG, fusion",3,0,"",retinoblastoma; aml; apl (translocation)
+BCORL1,63035,X:130005188-130058083,"oncogene, TSG",2,0,"",aml; hnscc
+BCR,613,22:23180210-23318037,fusion,3,0,"",cml; all; aml
+BIRC3,330,11:102317495-102337734,"oncogene, TSG, fusion",4,0,"",cll; malt; mcl; mm
+BLM,641,15:90717327-90816165,TSG,4,0,"",leukaemia; lymphoma; skin squamous cell; other tumour types
+BRAF,673,7:140730665-140924928,"oncogene, fusion",12,2,prostate; colorectal,melanoma; colorectal; papillary thyroid; borderline ovarian; nsclc; cholangiocarcinoma; pilocytic astrocytoma; spitzoid tumour; pancreas acinar carcinoma; melanocytic nevus; prostate; gastric
+BRCA1,672,17:43044295-43125483,TSG,2,2,breast; ovarian,ovarian; breast
+BRCA2,675,13:32315474-32400266,TSG,5,2,breast; ovarian,breast; ovarian; pancreatic; leukaemia  (fancb; fancd1)
+BRIP1,83990,17:61681266-61863521,TSG,3,1,breast,aml; leukaemia; breast
+BTK,695,X:101349447-101390796,"oncogene, TSG",3,0,"",cll; mantle cell lymphoma; wm
+CALR,811,19:12938607-12944489,oncogene,2,0,"",mpn; mds
+CASP8,841,2:201258036-201287711,TSG,3,1,breast,hepatocellular; oral squamous cell; breast
+CBL,867,11:119206276-119308149,"oncogene, TSG, fusion",3,0,"",aml; jmml; mds
+CCDC6,8030,10:59788763-59906656,"TSG, fusion",3,0,"",papillary thyroid; cml; nsclc
+CCND1,595,11:69641087-69654474,"oncogene, fusion",3,1,breast,cll; b-all; breast
+CCND2,894,12:4273772-4305350,"oncogene, fusion",2,0,"",nhl; cll
+CD274,29126,9:5450525-5470547,"TSG, fusion",2,0,"",pmbl; hodgkin lymphoma
+CD79A,973,19:41877120-41881372,oncogene,2,0,"",dlbcl; wm
+CD79B,974,17:63928740-63932336,oncogene,2,0,"",dlbcl; wm
+CDC73,79577,1:193122017-193253901,TSG,2,0,"",parathyroid adenoma; multiple ossifying jaw fibroma
+CDH1,999,16:68737225-68835548,TSG,2,0,"",lobular breast; gastric
+CDKN1B,1027,12:12717124-12722371,TSG,4,1,breast,breast; small intestine neuroendocrine tumours; pituitary; parathyroid
+CDKN2A,1029,9:21968056-21974866,TSG,3,0,"",melanoma; multiple other tumour types; pancreatic
+CDKN2C,1031,1:50960745-50974633,TSG,2,0,"",glioma; mm
+CEBPA,1050,19:33299934-33302564,TSG,2,0,"",aml; mds
+CIC,23152,19:42284665-42295797,"oncogene, TSG, fusion",2,0,"",oligodendroglioma; soft tissue sarcoma
+CIITA,4261,16:10877198-10924983,"TSG, fusion",2,0,"",pmbl; hodgkin lymphoma
+CLTC,1213,17:59619689-59696956,"TSG, fusion",2,0,"",alcl; renal
+CNTRL,11064,9:121075012-121177608,fusion,2,0,"",mpn; nhl
+COL1A1,1277,17:50183289-50201632,fusion,2,0,"",dfsp; aneurysmal bone cyst
+COL2A1,1280,12:47972965-48004486,fusion,2,0,"",chondrosarcoma; enchondroma
+CREB1,1385,2:207529892-207603431,"oncogene, fusion",2,0,"",clear cell sarcoma; angiomatoid fibrous histiocytoma
+CREBBP,1387,16:3725054-3880726,"oncogene, TSG, fusion",4,0,"",all; aml; dlbcl; b-nhl
+CRLF2,64109,X:1190490-1212750,"oncogene, fusion",2,0,"",b-all; downs associated all
+CSF3R,1441,1:36466043-36483278,oncogene,6,0,"",acml; cnl; leukaemia lymphoma and mds associated with severe congenital neutropenia; cmml; de novo aml; mds
+CTCF,10664,16:67562467-67639176,TSG,3,1,breast,endometrial; breast; head and neck cancer
+CTNNB1,1499,3:41220551-41239888,"oncogene, fusion",5,2,colorectal; ovarian,colorectal; ovarian; hepatoblastoma; pleomorphic salivary gland adenoma; other tumour types
+CUX1,1523,7:101816011-102258233,"oncogene, TSG",6,1,colorectal,endometrial; melanoma; colorectal; aml; mds; other tumour types
+DAXX,1616,6:33318558-33323014,"oncogene, TSG",2,0,"",pancreatic neuroendocrine tumour; paediatric glioblastoma
+DCTN1,1639,2:74361154-74380355,fusion,2,0,"",inflammatory myofibroblastic tumour; spitzoid tumour
+DDB2,1643,11:47214942-47239240,"oncogene, TSG",3,0,"",skin basal cell; skin squamous cell; melanoma
+DDR2,4921,1:162632465-162787400,oncogene,2,0,"",squamous cell carcinoma; nsclc
+DDX3X,1654,X:41333284-41351668,TSG,2,0,"",cll; medulloblastoma
+DICER1,23405,14:95086228-95158010,TSG,8,0,"",sex cord-stromal tumour; tgct; embryonal rhabdomyosarcoma; pleuropulmonary blastoma; pituitary blastoma; wilms tumour; thyroid cancer; other tumour types
+DROSHA,29102,5:31400497-31532061,TSG,3,0,"",wilms tumour; nsclc; bladder carcinoma
+EGFR,1956,7:55019101-55211628,oncogene,2,0,"",glioma; nsclc
+EP300,2033,22:41091786-41180079,"TSG, fusion",6,2,breast; colorectal,colorectal; breast; pancreatic; aml; all; dlbcl
+EPAS1,2034,2:46297402-46386703,"oncogene, TSG",3,0,"",paraganglioma; pheochromocytoma; central nervous system hemangioblastomas
+ERBB2,2064,17:39700080-39728662,"oncogene, fusion",5,2,breast; ovarian,breast; ovarian; other tumour types; nsclc; gastric
+ERBB3,2065,12:56079861-56103505,oncogene,5,1,colorectal,colon; gastric; head and neck; bladder; skin
+ERBB4,2066,2:211375717-212538841,"oncogene, TSG",3,0,"",melanoma; gastric; nsclc
+ERC1,23085,12:1027747-1495924,fusion,2,0,"",papillary thyroid; spitzoid tumour
+ERCC2,2068,19:45349837-45370587,TSG,3,0,"",skin basal cell; skin squamous cell; melanoma
+ERCC3,2071,2:127257290-127294176,TSG,3,0,"",skin basal cell; skin squamous cell; melanoma
+ERCC4,2072,16:13920157-13952345,TSG,3,0,"",skin basal cell; skin squamous cell; melanoma
+ERCC5,2073,13:102844844-102876001,TSG,3,0,"",skin basal cell; skin squamous cell; melanoma
+ERG,2078,21:38380027-38661694,"oncogene, fusion",3,1,prostate,ewing sarcoma; prostate; aml
+ETNK1,55500,12:22625075-22690665,TSG,4,0,"",acml; cmml; sm-ahd; hes
+ETV1,2115,7:13891228-13989946,"oncogene, fusion",2,1,prostate,ewing sarcoma; prostate
+ETV4,2118,17:43527844-43546432,"oncogene, fusion",2,1,prostate,ewing sarcoma; prostate carcinoma
+ETV6,2120,12:11649854-11895402,"TSG, fusion",4,0,"",congenital fibrosarcoma; multiple different leukaemia and lymphoma tumour types including all; secretory breast; mds
+EWSR1,2130,22:29268316-29300343,"oncogene, fusion",7,0,"",ewing sarcoma; desmoplastic small round cell tumour; all; clear cell sarcoma; sarcoma; myoepithelioma; mesothelioma
+EXT1,2131,8:117794490-118111853,"TSG, fusion",2,0,"",exostoses; osteosarcoma
+EXT2,2132,11:44096197-44245429,TSG,2,0,"",exostoses; osteosarcoma
+FANCA,2175,16:89737549-89816646,TSG,2,0,"",aml; leukaemia
+FANCC,2176,9:95099054-95317702,TSG,2,0,"",aml; leukaemia
+FANCD2,2177,3:10026414-10099660,TSG,2,0,"",aml; leukaemia
+FANCE,2178,6:35452361-35467103,TSG,2,0,"",aml; leukaemia
+FANCF,2188,11:22622519-22626787,TSG,2,0,"",aml; leukaemia
+FANCG,2189,9:35073838-35080016,TSG,2,0,"",aml; leukaemia
+FAS,355,10:88990657-89015785,TSG,3,0,"",tgct; nasal nk/t lymphoma; skin squamous cell carcinoma-burn scar related
+FAT1,2195,4:186587783-186723855,TSG,5,0,"",oral squamous cell; chemorefractory cll; head and neck; pancreatic acinar cell carcinoma; pancreatic
+FAT4,79633,4:125316399-125492932,TSG,5,0,"",lymphoma; pancreatic; head and neck; melanoma; hepatocellular carcinoma
+FBXW7,55294,4:152320544-152536063,TSG,3,1,colorectal,colorectal; endometrial; t-all
+FES,2242,15:90884412-90895776,"oncogene, TSG",2,1,ovarian,hnscc; ovarian carcinoma
+FGFR1,2260,8:38411138-38467845,"oncogene, fusion",3,0,"",mpn; nhl; salivary adenoma
+FGFR1OP,11116,6:166999182-167052713,fusion,2,0,"",mpn; nhl
+FGFR2,2263,10:121479857-121598403,"oncogene, fusion",3,0,"",gastric; nsclc; endometrial
+FGFR3,2261,4:1793312-1808872,"oncogene, fusion",3,0,"",bladder; mm; t-cell lymphoma
+FH,2271,1:241497603-241519761,TSG,4,0,"",cutaneous leiomyoma; rcc; uterine leiomyoma; pheochromocytoma and paraganglioma
+FLCN,201163,17:17212212-17237139,TSG,3,0,"",renal; fibrofolliculomas; trichodiscomas
+FLT3,2322,13:28003274-28100592,oncogene,2,0,"",aml; all
+FOXA1,3169,14:37589984-37595034,oncogene,2,2,breast; prostate,breast; prostate
+FOXO4,4303,X:71096197-71103535,"oncogene, TSG, fusion",2,0,"",al; soft tissue sarcoma
+FUS,2521,16:31180110-31194871,"TSG, fusion",5,0,"",liposarcoma; aml; ewing sarcoma; angiomatoid fibrous histiocytoma; fibromyxoid sarcoma
+GNA11,2767,19:3094410-3124004,oncogene,2,0,"",uveal melanoma; primary central nervous system melanocytic neoplasms
+GNAQ,2776,9:77716087-78031458,oncogene,2,0,"",uveal melanoma; primary central nervous system melanocytic neoplasms
+GNAS,2778,20:58852714-58911192,oncogene,3,0,"",pituitary adenoma; pancreatic intraductal papillary mucinous neoplasm; fibrous dysplasia
+GOLGA5,9950,14:92794231-92839963,fusion,2,0,"",papillary thyroid; spitzoid tumour
+GOPC,57120,6:117560269-117602364,fusion,3,0,"",glioblastoma; cholangiocarcinoma; borderline ovarian
+GRIN2A,2903,16:9753404-10182754,TSG,4,2,colorectal; lung,melanoma; colorectal carcinoma; gastric carcinoma; lung carcinoma
+HGF,3082,7:81699008-81770198,"oncogene, fusion",3,2,breast; lung,breast cancer; lung cancer; multiple myeloma
+HIF1A,3091,14:61697622-61748259,oncogene,6,2,colorectal; lung,endometrioid carcinoma; glioblastoma; colorectal; renal; lung; pancreatic
+HIP1,3092,7:75533300-75738947,"oncogene, fusion",2,0,"",cmml; nsclc
+HMGA1,3159,6:34236873-34246230,"oncogene, fusion",2,0,"",microfollicular thyroid adenoma; various benign mesenchymal tumours
+HMGA2,8091,12:65824460-65915447,"oncogene, fusion",3,0,"",lipoma; leiomyoma; pleomorphic salivary gland adenoma
+HNF1A,6927,12:120978749-121001269,TSG,3,0,"",hepatic adenoma; hepatocellular; hepatocellular carcinoma
+HRAS,3265,11:532243-535550,oncogene,5,0,"",infrequent sarcomas; rare other tumour types; rhabdomyosarcoma; ganglioneuroblastoma; bladder
+IGH,3492,14:-,fusion,7,0,"",mm; burkitt lymphoma; nhl; cll; b-all; malt; mlcls
+IGK,50802,2:-,fusion,2,0,"",burkitt lymphoma; b-nhl
+IKZF1,10320,7:50304669-50405101,"TSG, fusion",2,0,"",all; dlbcl
+IKZF3,22806,17:39757715-39864188,"oncogene, TSG, fusion",4,2,breast; colorectal,b-all; cll; breast cancer; colorectal cancer
+IL7R,3575,5:35856849-35879603,oncogene,2,0,"",all; etp all
+IRS4,8471,X:108732482-108736409,"oncogene, TSG",5,1,breast,glioma; rhabdomyosarcoma; melanoma; breast cancer; t-all
+JAK2,3717,9:4985245-5128183,"oncogene, fusion",4,0,"",all; aml; mpn; cml
+JAK3,3718,19:17824786-17848032,oncogene,2,0,"",acute megakaryocytic leukaemia; etp all
+KAT6B,23522,10:74826625-75032622,"TSG, fusion",2,0,"",aml; leiomyoma
+KDM6A,7403,X:44873511-45112602,"oncogene, TSG",7,0,"",renal cell carcinoma; bladder carcinoma; oesophageal scc; mm; medulloblastoma; t-all; other tumour types
+KDR,3791,4:55078259-55125595,oncogene,3,0,"",nsclc; angiosarcoma; melanoma
+KEAP1,9817,19:10486120-10503741,TSG,2,1,breast,nsclc; breast carcinoma
+KIF5B,3799,10:32009010-32056431,fusion,2,0,"",nsclc; spitzoid tumour
+KIT,3815,4:54657918-54740715,oncogene,6,0,"",gist; aml; tgct; mastocytosis; mucosal melanoma; epithelioma
+KLF6,1316,10:3775996-3785275,TSG,2,1,prostate,prostate; glioma
+KMT2A,4297,11:118436490-118526832,"oncogene, fusion",2,0,"",aml; all
+KMT2D,8085,12:49018975-49055324,"oncogene, TSG",2,0,"",medulloblastoma; renal
+KRAS,3845,12:25209431-25250803,oncogene,6,2,colorectal; lung,pancreatic; colorectal; lung; thyroid; aml; other tumour types
+LEF1,51176,4:108047545-108168422,"oncogene, TSG",5,0,"",b-all; t-all; eyelid sebaceous carcinoma; aml; lymphomas
+LMO1,4004,11:8224304-8263858,"oncogene, fusion",2,0,"",t-all; neuroblastoma
+LPP,4026,3:188212933-188890671,"oncogene, fusion",2,0,"",lipoma; leukaemia
+LRP1B,53353,2:140231423-142131701,TSG,4,1,ovarian,cll; ovarian cancer; oesophageal squamous cell carcinoma; urothelial cancer
+LZTR1,8216,22:20982013-20999038,TSG,2,0,"",glioblastoma; schwannoma
+MAP2K1,5604,15:66386817-66492312,oncogene,3,1,colorectal,nsclc; melanoma; colorectal
+MAP2K2,5605,19:4090321-4124129,oncogene,2,0,"",nsclc; melanoma
+MAP2K4,6416,17:12020834-12143830,"oncogene, TSG",3,2,breast; colorectal,pancreatic; breast; colorectal
+MAPK1,5594,22:21754500-21867629,oncogene,3,0,"",cll; ovarian mixed germ cell tumour; cervical carcinoma
+MAX,4149,14:65075544-65102470,TSG,3,0,"",pheochromocytoma; endometrioid carcinoma; colon carcinoma
+MDM2,4193,12:68808176-68850686,oncogene,4,1,colorectal,sarcoma; glioma; colorectal; other tumour types
+MDM4,4194,1:204516383-204558120,oncogene,3,0,"",glioblastoma; bladder; retinoblastoma
+MECOM,2122,3:169083499-169146305,"oncogene, fusion",3,0,"",aml; cml; mds
+MED12,9968,X:71118723-71142447,TSG,3,0,"",uterine leiomyoma; fibroadenoma; phyllodes tumour
+MEN1,4221,11:64803524-64811294,TSG,6,0,"",parathyroid tumours; pancreatic neuroendocrine tumour; parathyroid adenoma; pituitary adenoma; pancreatic islet cell; carcinoid
+MET,4233,7:116672405-116796342,oncogene,2,0,"",papillary renal; head-neck squamous cell
+MLH1,4292,3:36993332-37050918,TSG,5,2,colorectal; ovarian,colorectal; endometrial; ovarian; cns tumours; cns
+MN1,4330,22:27748277-27801498,"oncogene, fusion",2,0,"",aml; mds
+MSH2,4436,2:47402969-47483228,TSG,3,2,colorectal; ovarian,colorectal; endometrial; ovarian
+MSH6,2956,2:47783082-47810101,TSG,3,2,colorectal; ovarian,colorectal; endometrial; ovarian
+MTOR,2475,1:11106535-11262507,oncogene,7,0,"",endometrial carcinoma; head and neck; clear cell renal cell carcinoma; anaplastic thyroid cancer; urothelial cell carcinoma; central nervous system tumours; testicular germ cell tumours and other tumour types
+MUTYH,4595,1:45329242-45340388,TSG,2,1,colorectal,pancreatic neuroendocrine tumour; colorectal carcinoma
+MYC,4609,8:127736069-127741434,"oncogene, fusion",5,2,breast; ovarian,b-cll; breast cancer; burkitt lymphoma; gastric cancer; ovarian cancer
+MYCN,4613,2:15940564-15947007,oncogene,2,0,"",neuroblastoma; wilms tumour
+NAB2,4665,12:57088894-57095476,"TSG, fusion",2,0,"",solitary fibrous tumour; meningeal haemangiopericytoma
+NBN,4683,8:89933336-89984716,TSG,4,0,"",nhl; glioma; medulloblastoma; rhabdomyosarcoma
+NCOA2,10499,8:70109762-70403805,"oncogene, fusion",3,0,"",aml; chondrosarcoma; rhabdomyosarcoma
+NF1,4763,17:31094927-31377677,"TSG, fusion",2,0,"",neurofibroma; glioma
+NF2,4771,22:29603558-29698598,TSG,3,0,"",meningioma; acoustic neuroma; renal
+NFE2L2,4780,2:177230305-177265131,"oncogene, TSG",2,0,"",nsclc; hnscc
+NFIB,4781,9:14087569-14313667,fusion,2,0,"",adenoid cystic carcinoma; lipoma
+NFKBIE,4794,6:44258166-44265788,TSG,2,0,"",cll; desmoplastic melanoma
+NKX2-1,7080,14:36516392-36520228,"oncogene, TSG",3,0,"",lung adenocarcinoma; lung adenocarcinoma (mucinous); t-all
+NOTCH1,4851,9:136494433-136545786,"oncogene, TSG, fusion",6,1,breast,t-all; breast; bladder; skin scc; lung scc; head and neck scc
+NOTCH2,4853,1:119911553-120069626,"oncogene, TSG",3,0,"",marginal zone lymphoma; dlbcl; bladder
+NPM1,4869,5:171387648-171411137,"oncogene, fusion",3,0,"",nhl; apl; aml
+NRAS,4893,1:114704469-114716894,oncogene,4,0,"",melanoma; mm; aml; thyroid
+NTRK1,4914,1:156860894-156881642,"oncogene, TSG, fusion",2,0,"",papillary thyroid; spitzoid tumour
+NTRK2,4915,9:84669778-85027070,"oncogene, fusion",5,1,colorectal,colorectal cancer; ganglioglioma; glioma; hnscc; lung adenocarcinoma
+NTRK3,4916,15:87876757-88256731,"oncogene, fusion",2,0,"",congenital fibrosarcoma; secretory breast
+NUP214,8021,9:131125561-131234670,fusion,2,0,"",aml; t-all
+P2RY8,286530,X:1462572-1537107,"oncogene, fusion",2,0,"",b-all; down syndrome associated all
+PALB2,79728,16:23603170-23641310,TSG,4,1,breast,wilms tumour; medulloblastoma; aml; breast
+PAX5,5079,9:36833275-37034185,"oncogene, TSG, fusion",3,0,"",nhl; all; b-all
+PBRM1,55193,3:52547841-52685836,TSG,2,1,breast,clear cell renal carcinoma; breast
+PBX1,5087,1:164559635-164851831,"oncogene, fusion",2,0,"",pre b-all; myoepithelioma
+PCM1,5108,8:17922840-18027968,fusion,3,0,"",papillary thyroid; cml; mpn
+PDCD1LG2,80380,9:5510570-5571254,"oncogene, fusion",2,0,"",pmbl; hodgkin lymphoma
+PDGFRA,5156,4:54229097-54298247,"oncogene, fusion",3,0,"",gist; idiopathic hypereosinophilic syndrome; paediatric glioblastoma
+PDGFRB,5159,5:150113837-150155860,"oncogene, fusion",4,0,"",mpn; aml; cmml; cml
+PER1,5187,17:8140472-8152435,"TSG, fusion",2,0,"",aml; cmml
+PICALM,8301,11:85958814-86068929,fusion,2,0,"",t-all; aml
+PIK3CA,5290,3:179148523-179240093,oncogene,4,2,breast; colorectal,colorectal; gastric; glioblastoma; breast
+PIK3CB,5291,3:138652699-138759359,oncogene,2,0,"",scc; nsclc
+PIK3R1,5295,5:68215720-68301821,TSG,3,2,colorectal; ovarian,glioblastoma; ovarian; colorectal
+PLAG1,5324,8:56160904-56211279,"oncogene, fusion",2,0,"",salivary adenoma; lipoblastoma
+PML,5371,15:73994717-74046771,"TSG, fusion",2,0,"",apl; all
+PMS2,5395,7:5973239-6009125,TSG,4,1,colorectal,colorectal; endometrial; medulloblastoma; glioma
+POLE,5426,12:132623762-132687359,TSG,5,1,colorectal,colorectal carcinoma; endometrioid carcinoma; stomach carcinoma; skin cancer; colorectal cancer susceptibility
+POLQ,10721,3:121431431-121546006,"oncogene, TSG",2,1,breast,oral scc; breast cancer
+PPFIBP1,8496,12:27524206-27695564,fusion,2,0,"",spitzoid tumour; inflammatory myofibroblastic tumour
+PPM1D,8493,17:60600183-60666280,oncogene,3,2,breast; ovarian,glioma; ovarian cancer; breast cancer
+PRDM16,63976,1:3069211-3438621,"oncogene, fusion",2,0,"",mds; aml
+PREX2,80243,8:67952118-68237030,oncogene,2,0,"",melanoma; pancreatic ductal adenocarcinoma
+PRF1,5551,10:70597349-70602775,TSG,2,0,"",various leukaemia; lymphoma
+PRKACA,5566,19:14091688-14117744,oncogene,2,0,"",fibrolamellar hepatocellular carcinoma; cortisol secreting adrenal adenoma
+PRKAR1A,5573,17:68512379-68533423,"oncogene, TSG, fusion",3,0,"",papillary thyroid; myxoma; endocrine
+PTCH1,5727,9:95442980-95508661,TSG,2,0,"",skin basal cell; medulloblastoma
+PTEN,5728,10:87863113-87971930,TSG,4,1,prostate,glioma; prostate; endometrial; harmartoma
+PTK6,5753,20:63528001-63537354,"oncogene, TSG",5,1,ovarian,renal; gastric; head and neck; ovarian; others
+PTPN11,5781,12:112419112-112504764,oncogene,3,0,"",jmml; aml; mds
+PTPN13,5783,4:86594315-86815171,TSG,5,1,lung,lung; nsclc; gastric; peritoneal carcinomatosis; hepatocellular
+PTPRT,11122,20:42072752-43189969,TSG,5,2,colorectal; lung,hnscc; colorectal cancer; gastric cancer; lung cancer; melanoma
+QKI,9444,6:163414643-163578596,"oncogene, TSG",2,1,colorectal,angiocentric glioma; colorectal cancer
+RAC1,5879,7:6374539-6402520,oncogene,2,0,"",melanoma; carcinoma
+RAD21,5885,8:116845935-116874866,"oncogene, TSG",4,2,colorectal; lung,aml; endometrium; colorectal; lung
+RAD51B,5890,14:67819779-68611565,"TSG, fusion",2,0,"",lipoma; uterine leiomyoma
+RAD51C,5889,17:58692573-58735611,TSG,2,2,breast; ovarian,ovarian; breast
+RAF1,5894,3:12583601-12664226,"oncogene, fusion",2,1,prostate,pilocytic astrocytoma; prostate
+RASA1,5921,5:87267888-87390927,TSG,2,0,"",lung scc; oral scc
+RB1,5925,13:48303726-48481890,TSG,4,1,breast,retinoblastoma; sarcoma; breast; small cell lung carcinoma
+RECQL4,9401,8:144511291-144517826,"oncogene, TSG",3,0,"",osteosarcoma; skin basal cell; skin sqamous cell
+RET,5979,10:43077027-43130351,"oncogene, fusion",5,0,"",medullary thyroid; papillary thyroid; pheochromocytoma; nsclc; spitzoid tumour
+RHOA,387,3:49359145-49412202,"oncogene, TSG",3,0,"",diffuse gastric; t cell lymphomas; paediatric burkitt lymphoma
+RMI2,116028,16:11345431-11351762,"TSG, fusion",2,0,"",pmbl; hodgkin lymphoma
+RNF43,54894,17:58353676-58417533,TSG,3,1,ovarian,cholangiocarcinoma; ovary; pancreas
+ROS1,6098,6:117288300-117425855,"oncogene, fusion",5,0,"",glioblastoma; nsclc; spitzoid tumour; cholangiocarcinoma; borderline ovarian
+RPL22,6146,1:6185020-6199612,"TSG, fusion",2,0,"",aml; cml
+RUNX1,861,21:34787801-35049344,"oncogene, TSG, fusion",3,0,"",aml; pre b-all; t-all
+SALL4,57167,20:51782331-51802520,oncogene,5,3,breast; prostate; colorectal,colorectal cancer; breast cancer; prostate cancer; glioblastoma; melanoma
+SBDS,51119,7:66987677-66995601,TSG,2,0,"",aml; mds
+SDHA,6389,5:218241-256700,TSG,2,0,"",gist; paraganglioma
+SDHB,6390,1:17018722-17054170,TSG,2,0,"",paraganglioma; pheochromocytoma
+SDHC,6391,1:161314257-161375340,TSG,2,0,"",paraganglioma; pheochromocytoma
+SDHD,6392,11:112086773-112095794,TSG,2,0,"",paraganglioma; pheochromocytoma
+SETBP1,26040,18:44680898-45068510,"oncogene, fusion",6,0,"",acml; saml; mds/mpn-u; cmml; jmml; neuroepithelial tumours
+SFRP4,6424,7:37905932-37916915,TSG,5,1,colorectal,colorectal cancer; melanoma; scc; gastric cancer; oesophageal scc
+SH2B3,10019,12:111405948-111451623,TSG,4,0,"",mpn; saml; erythrocytosis; b-all
+SMAD2,4087,18:47808957-47930559,TSG,2,1,colorectal,colorectal carcinoma; hepatocellular carcinoma
+SMAD3,4088,15:67065845-67195195,TSG,2,1,colorectal,colorectal carcinoma; oral squamous cell carcinoma
+SMAD4,4089,18:51030213-51085039,TSG,4,1,colorectal,colorectal; pancreatic; small intestine; gastrointestinal polyp
+SMARCA4,6597,19:10960825-11062282,TSG,2,0,"",nsclc; sccoht
+SOCS1,8651,16:11254417-11256200,TSG,2,0,"",hodgkin lymphoma; pmbl
+SOS1,6654,2:38981396-39121051,"oncogene, fusion",2,0,"",lung adenocarcinoma; follicular thyroid adenoma
+SOX2,6657,3:181711924-181714436,oncogene,2,0,"",nsclc; oesophageal squamous cell carcinoma
+SPEN,23013,1:15847864-15940460,TSG,3,0,"",smzl; adenoid cystic carcinoma; dlbcl
+SPOP,8405,17:49598884-49678110,TSG,3,1,prostate,prostate; endometrial; prostate cancer
+SRC,6714,20:37346154-37406050,oncogene,2,1,colorectal,colorectal cancer; endometrial carcinoma
+SRSF2,6427,17:76734115-76737333,oncogene,2,0,"",mds; cll
+STAG2,10735,X:123960519-124101498,TSG,5,0,"",bladder carcinoma; glioblastoma; melanoma; ewing's sarcoma; myeloid neoplasms
+STAT3,6774,17:42313324-42388568,oncogene,2,0,"",t-cell large granular lymphocytic leukaemia; paediatric large granular lymphocytic leukaemia
+STAT5B,6777,17:42199168-42276406,"oncogene, TSG, fusion",3,0,"",large granular lymphocytic leukaemia; skin basal cell; apl
+STAT6,6778,12:57095408-57111433,"oncogene, fusion",2,0,"",solitary fibrous tumour; meningeal haemangiopericytoma
+STK11,6794,19:1206464-1228435,TSG,5,1,ovarian,nsclc; pancreatic; jejunal hamartoma; ovarian; testicular
+STRN,6801,2:36843640-36966472,fusion,3,1,lung,anaplastic thyroid; papillary thyroid; lung
+SYK,6850,9:90801787-90898549,"oncogene, fusion",2,0,"",mds; peripheral t-cell lymphoma
+TAF15,8148,17:35809455-35847242,"oncogene, fusion",2,0,"",extraskeletal myxoid chondrosarcoma; all
+TBL1XR1,79718,3:177019355-177196478,"oncogene, TSG, fusion",4,1,colorectal,splenic marginal zone lymphoma; primary central nervous system lymphoma; colorectal carcinoma; gallbladder carcinoma
+TBX3,6926,12:114670255-114683590,"oncogene, TSG",3,2,breast; colorectal,breast; large intestine; skin
+TERT,7015,5:1253167-1295047,"oncogene, TSG",9,0,"",melanoma; glioblastoma; hepatocellular carcinoma; bladder; skin basal cell; skin squamous cell; mesothelioma; medulloblastoma; other tumour types
+TFE3,7030,X:49028731-49043486,"oncogene, fusion",3,0,"",papillary renal; alveolar soft part sarcoma; renal
+TFG,10342,3:100709425-100748966,fusion,4,0,"",papillary thyroid; alcl; nsclc; extraskeletal myxoid chondrosarcoma
+TGFBR2,7048,3:30606601-30694142,TSG,2,1,colorectal,head and neck; colorectal
+TMEM127,55654,2:96248516-96265994,TSG,2,0,"",pheochromocytoma; renal cell carcinoma
+TNFAIP3,7128,6:137867188-137883311,TSG,3,0,"",marginal zone b-cell lymphomas; hodgkin lymphoma; pmbl
+TP53,7157,17:7668402-7687538,"oncogene, TSG, fusion",10,4,breast; prostate; colorectal; lung,breast; colorectal; lung; sarcoma; prostate; adrenocortical; glioma; spitzoid tumour; multiple other tumour types; adrenocortical carcinoma
+TP63,8626,3:189631427-189897279,"oncogene, TSG",3,0,"",hnscc; dlbcl; nsclc
+TPM3,7170,1:154167465-154192211,"TSG, fusion",4,0,"",papillary thyroid; alcl; nsclc; spitzoid tumour
+TPR,7175,1:186311652-186375325,fusion,2,0,"",papillary thyroid; nsclc
+TSC1,7248,9:132891348-132944633,TSG,4,0,"",renal cell carcinoma; bladder carcinoma; hamartoma; tuberous sclerosis tuber
+TSC2,7249,16:2047465-2088720,TSG,6,0,"",pulmonary lymphangioleiomyomatosis (lam); renal angiomyolipoma; hnscc; hamartoma; renal cell carcinoma; tuberous sclerosis tuber
+U2AF1,7307,21:43092956-43107587,oncogene,2,0,"",cll; mds
+UBR5,51366,8:102253012-102412841,oncogene,3,1,colorectal,mantle cell lymphoma; gastric; colorectal
+VHL,7428,3:10141008-10152220,TSG,3,0,"",renal; haemangioma; pheochromocytoma
+WRN,7486,8:31033801-31173769,TSG,3,0,"",osteosarcoma; meningioma; other tumour types
+WT1,7490,11:32387775-32435630,"oncogene, TSG, fusion",2,0,"",wilms tumour; desmoplastic small round cell tumour
+XPA,7507,9:97674909-97697357,TSG,3,0,"",skin basal cell; skin squamous cell; melanoma
+XPC,7508,3:14145147-14178783,TSG,3,0,"",skin basal cell; skin squamous cell; melanoma
+YAP1,10413,11:102110461-102233423,"fusion, oncogene",3,0,"",cervical carcinoma; glioblastoma; meningioma
+ZFHX3,463,16:72782885-73891871,TSG,3,1,prostate,endometrial; gastric; prostate
+ZMYM2,7750,13:19958670-20091829,fusion,2,0,"",mpn; nhl
+ZRSR2,8233,X:15790472-15823260,TSG,2,0,"",mds; cll
