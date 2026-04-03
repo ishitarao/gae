@@ -1,41 +1,74 @@
 import numpy as np
-import sys
-import pickle as pkl
 import networkx as nx
-import scipy.sparse as sp
+import csv
+from sklearn.preprocessing import normalize, MinMaxScaler
 
+from gae.util import decorrelate_from_degree, CANCER_CODES, DATA_DIR, EDGE_LIST, NODE_FEATURES_WITH_DEGREE
 
-def parse_index_file(filename):
-    index = []
-    for line in open(filename):
-        index.append(int(line.strip()))
-    return index
+NUM_FEATURES = len(CANCER_CODES)
 
+"""
+If create=False, then it loads a pre-existing graph file. 
+If create=True, then this function builds a numpy graph from CSV edge list and saves it to file.
+"""
+def load_adjacency_matrix(create=False):
+    if not create:
+        return np.load(DATA_DIR + 'input/ind.ca.graph', allow_pickle=True)
 
-def load_data(dataset):
-    # load the data: x, tx, allx, graph
-    names = ['x', 'tx', 'allx', 'graph']
-    objects = []
-    for i in range(len(names)):
-        with open("data/ind.{}.{}".format(dataset, names[i]), 'rb') as f:
-            if sys.version_info > (3, 0):
-                objects.append(pkl.load(f, encoding='latin1'))
-            else:
-                objects.append(pkl.load(f))
-    x, tx, allx, graph = tuple(objects)
-    test_idx_reorder = parse_index_file("data/ind.{}.test.index".format(dataset))
-    test_idx_range = np.sort(test_idx_reorder)
+    edges, nodes = set(), set()
+    with open(EDGE_LIST) as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            src = int(row['source'])
+            tgt = int(row['target'])
+            weight = float(row['combined_score_scaled'])
 
-    if dataset == 'citeseer':
-        # Fix citeseer dataset (there are some isolated nodes in the graph)
-        # Find isolated nodes, add them as zero-vecs into the right position
-        test_idx_range_full = range(min(test_idx_reorder), max(test_idx_reorder)+1)
-        tx_extended = sp.lil_matrix((len(test_idx_range_full), x.shape[1]))
-        tx_extended[test_idx_range-min(test_idx_range), :] = tx
-        tx = tx_extended
+            edges.add((src, tgt, weight))
+            nodes.add(src)
+            nodes.add(tgt)
 
-    features = sp.vstack((allx, tx)).tolil()
-    features[test_idx_reorder, :] = features[test_idx_range, :]
-    adj = nx.adjacency_matrix(nx.from_dict_of_lists(graph))
+    n = len(nodes)
+    adj_matrix = np.zeros((n, n))
+    for src, tgt, weight in edges:
+        adj_matrix[src, tgt] = weight
+        adj_matrix[tgt, src] = weight
 
+    np.fill_diagonal(adj_matrix, 1)
+    np.save(DATA_DIR + 'input/ind.ca.graph', adj_matrix)
+    return adj_matrix
+
+"""
+If create=False, then it loads a pre-existing feature vector file of GWAS z-scores. 
+If create=True, then this function builds a standardized numpy feature vector from a CSV of node features. 
+"""
+def load_feature_vector(n, create=True):
+    if not create:
+         return np.load(DATA_DIR + 'input/ind.ca.allx', allow_pickle=True)
+    node_degrees = np.zeros(n)
+    with open(NODE_FEATURES_WITH_DEGREE) as f:
+        reader = csv.DictReader(f)
+        feature_vector = np.zeros((n, NUM_FEATURES))
+        for row in reader:
+            features = [row[f'zstat_{code}'] for code in CANCER_CODES]
+            for i in range(len(features)):
+                feature_vector[int(row['node_idx']), i] = float(features[i])
+            node_degrees[int(row['node_idx'])] = int(row['degree'])
+
+    # Use residualized scores as features instead
+    feature_vector = decorrelate_from_degree(feature_vector, node_degrees)
+
+    scaler = MinMaxScaler()
+    feature_vector = scaler.fit_transform(feature_vector)
+    feature_vector = normalize(feature_vector, norm='l2')
+    np.save(DATA_DIR + 'input/ind.ca.allx', feature_vector)
+    return feature_vector, node_degrees
+
+"""
+Returns the feature vector and graph to be input to the GAE.
+"""
+def load_data():
+    graph = load_adjacency_matrix()
+    graph[graph != 0] = 1
+    features, node_degrees = load_feature_vector(graph.shape[0])
+    adj = nx.adjacency_matrix(nx.from_numpy_array(graph))
     return adj, features
