@@ -4,40 +4,46 @@ from __future__ import print_function
 import time
 import os
 
+from gae.util import sigmoid
+
 # Train on CPU (hide GPU) due to memory constraints
 os.environ['CUDA_VISIBLE_DEVICES'] = ""
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import numpy as np
 import scipy.sparse as sp
 
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import average_precision_score
 
-from gae.optimizer import OptimizerAE, OptimizerVAE
-from gae.input_data import load_data
-from gae.model import GCNModelAE, GCNModelVAE
-from gae.preprocessing import preprocess_graph, construct_feed_dict, sparse_to_tuple, mask_test_edges
+from optimizer import OptimizerAE, OptimizerVAE
+from input_data import load_data
+from model import GCNModelAE, GCNModelVAE
+from preprocessing import preprocess_graph, construct_feed_dict, sparse_to_tuple, mask_test_edges
 
+tf.compat.v1.disable_eager_execution()
 # Settings
 flags = tf.app.flags
 FLAGS = flags.FLAGS
-flags.DEFINE_float('learning_rate', 0.01, 'Initial learning rate.')
+flags.DEFINE_float('learning_rate', 0.0005, 'Initial learning rate.')
 flags.DEFINE_integer('epochs', 200, 'Number of epochs to train.')
-flags.DEFINE_integer('hidden1', 32, 'Number of units in hidden layer 1.')
-flags.DEFINE_integer('hidden2', 16, 'Number of units in hidden layer 2.')
-flags.DEFINE_float('weight_decay', 0., 'Weight for L2 loss on embedding matrix.')
-flags.DEFINE_float('dropout', 0., 'Dropout rate (1 - keep probability).')
+flags.DEFINE_integer('hidden1', 64, 'Number of units in hidden layer 1.')
+flags.DEFINE_integer('hidden2', 32, 'Number of units in hidden layer 2.')
+flags.DEFINE_integer('patience', 10, 'Patience for early stopping.')
+
+
+flags.DEFINE_float('weight_decay', 1e-4, 'Weight for L2 loss on embedding matrix.')
+flags.DEFINE_float('dropout', 0.1, 'Dropout rate (1 - keep probability).')
+
 
 flags.DEFINE_string('model', 'gcn_ae', 'Model string.')
-flags.DEFINE_string('dataset', 'cora', 'Dataset string.')
+flags.DEFINE_string('dataset', 'ca', 'Dataset string.')
 flags.DEFINE_integer('features', 1, 'Whether to use features (1) or not (0).')
 
 model_str = FLAGS.model
-dataset_str = FLAGS.dataset
 
 # Load data
-adj, features = load_data(dataset_str)
+adj, features = load_data()
 
 # Store original adjacency matrix (without diagonal entries) for later
 adj_orig = adj
@@ -48,34 +54,36 @@ adj_train, train_edges, val_edges, val_edges_false, test_edges, test_edges_false
 adj = adj_train
 
 if FLAGS.features == 0:
-    features = sp.identity(features.shape[0])  # featureless
+    features = np.eye(features.shape[0])  # featureless
 
 # Some preprocessing
 adj_norm = preprocess_graph(adj)
 
 # Define placeholders
 placeholders = {
-    'features': tf.sparse_placeholder(tf.float32),
+    'features': tf.placeholder(tf.float32),
     'adj': tf.sparse_placeholder(tf.float32),
     'adj_orig': tf.sparse_placeholder(tf.float32),
-    'dropout': tf.placeholder_with_default(0., shape=())
+    'dropout': tf.placeholder_with_default(0., shape=()),
+    'kl_weight': tf.placeholder_with_default(0.0, shape=()),
 }
 
 num_nodes = adj.shape[0]
+num_features = features.shape[1]
 
-features = sparse_to_tuple(features.tocoo())
-num_features = features[2][1]
-features_nonzero = features[1].shape[0]
 
 # Create model
 model = None
 if model_str == 'gcn_ae':
-    model = GCNModelAE(placeholders, num_features, features_nonzero)
+    model = GCNModelAE(placeholders, num_features)
 elif model_str == 'gcn_vae':
-    model = GCNModelVAE(placeholders, num_features, num_nodes, features_nonzero)
+    model = GCNModelVAE(placeholders, num_features, num_nodes)
 
-pos_weight = float(adj.shape[0] * adj.shape[0] - adj.sum()) / adj.sum()
-norm = adj.shape[0] * adj.shape[0] / float((adj.shape[0] * adj.shape[0] - adj.sum()) * 2)
+
+num_nodes, num_edges = adj.shape[0], adj.sum()
+
+pos_weight = 300
+norm = num_nodes * num_nodes / float((num_nodes * num_nodes - num_edges) * 2)
 
 # Optimizer
 with tf.name_scope('optimizer'):
@@ -91,7 +99,8 @@ with tf.name_scope('optimizer'):
                                                                        validate_indices=False), [-1]),
                            model=model, num_nodes=num_nodes,
                            pos_weight=pos_weight,
-                           norm=norm)
+                           norm=norm,
+                           kl_weight=placeholders['kl_weight'])
 
 # Initialize session
 sess = tf.Session()
@@ -106,21 +115,19 @@ def get_roc_score(edges_pos, edges_neg, emb=None):
         feed_dict.update({placeholders['dropout']: 0})
         emb = sess.run(model.z_mean, feed_dict=feed_dict)
 
-    def sigmoid(x):
-        return 1 / (1 + np.exp(-x))
-
     # Predict on test set of edges
-    adj_rec = np.dot(emb, emb.T)
+    adj_rec = sigmoid(np.dot(emb, emb.T))
+
     preds = []
     pos = []
     for e in edges_pos:
-        preds.append(sigmoid(adj_rec[e[0], e[1]]))
+        preds.append(adj_rec[e[0], e[1]])
         pos.append(adj_orig[e[0], e[1]])
 
     preds_neg = []
     neg = []
     for e in edges_neg:
-        preds_neg.append(sigmoid(adj_rec[e[0], e[1]]))
+        preds_neg.append(adj_rec[e[0], e[1]])
         neg.append(adj_orig[e[0], e[1]])
 
     preds_all = np.hstack([preds, preds_neg])
@@ -139,12 +146,16 @@ adj_label = adj_train + sp.eye(adj_train.shape[0])
 adj_label = sparse_to_tuple(adj_label)
 
 # Train model
+best_val_roc = 0
+patience_counter = 0
 for epoch in range(FLAGS.epochs):
-
     t = time.time()
     # Construct feed dictionary
+    kl_weight = min(1.0, epoch / 50.0)  # ramp up over first 50 epochs
     feed_dict = construct_feed_dict(adj_norm, adj_label, features, placeholders)
-    feed_dict.update({placeholders['dropout']: FLAGS.dropout})
+    feed_dict.update({ placeholders['dropout']: FLAGS.dropout,
+                      placeholders['kl_weight']: kl_weight })
+
     # Run single weight update
     outs = sess.run([opt.opt_op, opt.cost, opt.accuracy], feed_dict=feed_dict)
 
@@ -160,6 +171,20 @@ for epoch in range(FLAGS.epochs):
           "val_ap=", "{:.5f}".format(ap_curr),
           "time=", "{:.5f}".format(time.time() - t))
 
+    if roc_curr > best_val_roc:
+        best_val_roc = roc_curr
+        patience_counter = 0
+        # Save best embeddings
+        best_emb = sess.run(model.z_mean, feed_dict=feed_dict)
+    else:
+        patience_counter += 1
+
+    if patience_counter >= FLAGS.patience:
+        print(f"Early stopping at epoch {epoch}")
+        break
+
+
+np.save('../../data/output/model.npy', best_emb)
 print("Optimization Finished!")
 
 roc_score, ap_score = get_roc_score(test_edges, test_edges_false)
